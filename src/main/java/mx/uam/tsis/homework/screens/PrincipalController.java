@@ -11,19 +11,20 @@ import lombok.extern.slf4j.Slf4j;
  * @author danielgloriaflorencio
  *
  */
+
 @Controller
 @Slf4j
 public class PrincipalController {
 	@GetMapping("/")
 	public String index() {
-		log.info("Index () method was invoked");
+		log.info("index () method was invoked");
 		return "index";
 	}
 	
-	@GetMapping("/register")
-    public String register(){
+	@GetMapping("/search")
+    public String search(){
 
-        log.info("Se invocó el método register()");
+        log.info("register() method was invoked");
         return "register";
 
     }

@@ -28,38 +28,28 @@
 
 <body>
     <div class="topnav">
-        <a class="active">Registrar</a>
-        <a href="search.html">Buscar</a>
+        <a href="index.html">Registrar</a>
+        <a class="active">Buscar</a>
     </div>
     <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
         <div class="wrapper wrapper--w780">
             <div class="card card-3">
-                <div class="card-heading"></div>
+
                 <div class="card-body">
-                    <h2 class="title">Información de registro</h2>
-                    <form class="new-student">
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" id="name" placeholder="Nombre" name="name" required>
-                        </div>
+                    <h2 class="title">Buscar Alumno</h2>
+                    <form method="POST">
+
                         <div class="input-group">
                             <input class="input--style-3" type="tel" id="registryNumber" title="por favor ingrese un numero valido, este debe ser mayor que 0 y menor que 32767" placeholder="Matricula" name="registryNumber" required>
                         </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="divicion" required>
-                                    <option disabled="disabled" selected="selected">Divición</option>
-                                    <option value="CBS">CBS</option>
-                                    <option value="CBI">CBI</option>
-                                    <option value="CSH">CSH</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" id="carrer" placeholder="Carrera" name="carrer" required>
-                        </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Registrar</button>
+                            <button class="btn btn--pill btn--green" type="submit">Buscar</button>
+                        </div>
+                        <div class="student-view">
+                            <h3>nombre</h3>
+                            <p>qwe</p>
+                            <p>qwe</p>
+                            <p>qwe</p>
                         </div>
                     </form>
                 </div>
@@ -67,7 +57,7 @@
         </div>
     </div>
     <!-- Spring conection -->
-    <script src="js/createStudent.js"></script>
+    <script src="js/modifyStudent.js"></script>
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
