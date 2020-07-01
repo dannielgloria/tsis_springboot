@@ -1,6 +1,7 @@
 package mx.uam.tsis.homework.business;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,35 +22,45 @@ public class StudentService {
 	@Autowired
 	private StudentRepository studentRepository;
 	
-
+	
 	public Student create(Student newStudent) {
 		// TODO Auto-generated method stub
-		Student student = studentRepository.findByRegistryNumber(newStudent.getRegistryNumber());
-		if(student == null) {
+		Optional <Student> studentOpt = studentRepository.findById(newStudent.getRegistryNumber());
+		if(!studentOpt.isPresent()) {
 			return studentRepository.save(newStudent);
 		} else {
 			return null;
 		}
 	}
 
-	public List<Student> retrieveAll() {
+	public Iterable <Student> retrieveAll() {
 		// TODO Auto-generated method stub
-		return studentRepository.find();
+		return studentRepository.findAll();
 	}
 
-	public Student retrieveByRegistrationNumber(Integer registryNumber) {
+	public Optional<Student> retrieveByRegistrationNumber(Integer registryNumber) {
 		// TODO Auto-generated method stub
-		return studentRepository.findByRegistryNumber(registryNumber);
+		return studentRepository.findById(registryNumber);
 	}
 
 	public Student update(Student student, Integer registryNumber) {
-		// TODO Auto-generated method stub
-		return studentRepository.update(student, registryNumber);
+		Optional <Student>  student = studentRepository.findById(registryNumber);
+		if(!student.isPresent()) {
+			return studentRepository.saveAll(student);
+		}else {
+			return null;
+		}
 	}
 
 	public boolean delete(Integer registryNumber) {
 		// TODO Auto-generated method stub
-		return studentRepository.delete(registryNumber);
+		Optional<Student>  student =studentRepository.findById(registryNumber);
+		if(student.isPresent()) {
+			studentRepository.deleteById(registryNumber);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

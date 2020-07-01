@@ -1,12 +1,6 @@
 package mx.uam.tsis.homework.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map;
-
-import org.springframework.stereotype.Component;
+import org.springframework.data.repository.CrudRepository;
 
 import mx.uam.tsis.homework.business.model.Student;
 
@@ -16,10 +10,11 @@ import mx.uam.tsis.homework.business.model.Student;
  *
  */
 
-@Component
-public class StudentRepository {
+public interface StudentRepository extends CrudRepository <Student, Integer> {
 	
 	
+	
+	/*
 	// "Database"
 	private Map <Integer, Student> studentRepository = new HashMap <>();
 	
@@ -58,5 +53,5 @@ public class StudentRepository {
 		} else {
 			return false;
 		}
-	}
+	}*/
 }
