@@ -44,12 +44,11 @@ public class StudentService {
 	}
 
 	public Student update(Student student, Integer registryNumber) {
-		Optional <Student>  student = studentRepository.findById(registryNumber);
-		if(!student.isPresent()) {
-			return studentRepository.saveAll(student);
-		}else {
+		if (studentRepository.findById(registryNumber).isPresent())
+			return studentRepository.save(student);
+		else
 			return null;
-		}
+		
 	}
 
 	public boolean delete(Integer registryNumber) {
